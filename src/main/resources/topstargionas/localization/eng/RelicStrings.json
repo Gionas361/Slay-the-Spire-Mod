@@ -1,0 +1,41 @@
+{
+  "${modID}:RelicID": {
+    "NAME": "Good Relic",
+    "FLAVOR": "Flavor text displayed in detailed relic view.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. [E] is an energy icon."
+    ]
+  },
+
+  "${modID}:StarCore": {
+    "NAME": "Star Core",
+    "FLAVOR": "No Caretaker is truly a Caretaker without one of these.",
+    "DESCRIPTIONS": [
+      "Increase max hand size by #b%s."
+    ]
+  },
+
+  "${modID}:StellarCore": {
+    "NAME": "Stellar Core",
+    "FLAVOR": "The original owner must be looking for this.",
+    "DESCRIPTIONS": [
+      "Draw 2 cards on turn start. NL Recover 1 Energy when using an upgraded card that costs more than 1 Energy."
+    ]
+  },
+
+  "${modID}:TokenOfGigants": {
+    "NAME": "Token of the Gigants",
+    "FLAVOR": "This is the token given to individuals recognized by the Gigants as a worthy individual.",
+    "DESCRIPTIONS": [
+      "Upon using an #y${modID}:Imitation card, reapply the half of the Block and/or Inflict the Damage of the card."
+    ]
+  },
+
+  "${modID}:RetriggerImitations": {
+    "NAME": "Mimic's Talent",
+    "FLAVOR": "Doesnt this remind you of something...? Maybe.... a soul? Perhaps~ even.... a dark one?",
+    "DESCRIPTIONS": [
+      "Upon using an #y${modID}:Imitation card, retrigger the card."
+    ]
+  }
+}

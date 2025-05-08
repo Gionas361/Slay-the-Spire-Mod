@@ -1,0 +1,97 @@
+{
+  "${modID}:ExampleCard": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description. NL Second line.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+
+  "${modID}:LittleStar": {
+    "NAME": "Little Star",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+
+  "${modID}:Prepare": {
+    "NAME": "Prepare",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+
+  "${modID}:SuperChargedStar": {
+    "NAME": "Super Charged Star",
+    "DESCRIPTION": "Deal !D! damage. Can be ${modID}:Upgraded any number of times. NL Deal hand-size (!${modID}:XhandSize!) X 3."
+  },
+
+  "${modID}:CoreOverdrive": {
+    "NAME": "Core Overdrive",
+    "DESCRIPTION": "At the start of your turn, recover !${modID}:FINALREGEN! Energy."
+  },
+
+  "${modID}:StarReserve": {
+    "NAME": "Star Reserve",
+    "DESCRIPTION": "Gain !B! Block, and Retain every Little Star."
+  },
+
+  "${modID}:QuickDraw": {
+    "NAME": "Quick Draw",
+    "DESCRIPTION": "Deal !D! damage, 3 times. NL Draw a card after dealing damage. NL Inflict !${modID}:BurnQuickDraw! ${modID}:Burned."
+  },
+
+  "${modID}:StarFall": {
+    "NAME": "Star Fall",
+    "DESCRIPTION": "At the start of your turn, draw !${modID}:DRAWCARD! cards."
+  },
+
+  "${modID}:BurnEssence": {
+    "NAME": "Burn Essence",
+    "DESCRIPTION": "Gain !B! Block. NL Inflict !${modID}:BurnQuickDraw! ${modID}:Burned."
+  },
+
+  "${modID}:MoonlightRebound": {
+    "NAME": "Moonlight Rebound",
+    "DESCRIPTION": "Put !${modID}:CARDDRAW! random cards from your discard pile into your hand. NL Deal 3 + damage equal to the total cost of the cards moved into the hand."
+  },
+
+  "${modID}:CounterMeasures": {
+    "NAME": "Counter Measures",
+    "DESCRIPTION": "${modID}:Imitation NL Gain !B! Block. NL Draw 1 card."
+  },
+
+  "${modID}:VSwipe": {
+    "NAME": "Vampiric Swipe",
+    "DESCRIPTION": "${modID}:Imitation NL Deal !D! damage."
+  },
+
+  "${modID}:Infinita": {
+    "NAME": "Infi'nita",
+    "DESCRIPTION": "Deals damage based on the amount-of-relics (!${modID}:RELICAMOUNT!) X !${modID}:RELICDMG!. NL The cost of the card equals amount-of-relics (!${modID}:RELICAMOUNT!) / !${modID}:CARDCOST!"
+  },
+
+  "${modID}:ShieldedStar": {
+    "NAME": "Shilded Star",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !${modID}:DEX! Dexterity."
+  },
+
+  "${modID}:DragonRoar": {
+    "NAME": "Dragon Roar",
+    "DESCRIPTION": "${modID}:Imitation NL Inflict !${modID}:WEAK! Weak onto all Enemies. NL Exhaust."
+  },
+
+  "${modID}:AxisBreak": {
+    "NAME": "Axis Break",
+    "DESCRIPTION": "${modID}:Imitation NL Deal !D! Damage X times. NL If on use, had !${modID}:ENREQ!, Deal !${modID}:EXPLO! Damage."
+  },
+
+  "${modID}:AdrenalineAddict": {
+    "NAME": "Adrenaline Addict",
+    "DESCRIPTION": "${modID}:Imitation NL Discard all cards, recover 1 Energy for each card. NL Draw cards until hand is full. NL Exhaust."
+  },
+
+  "${modID}:HellBurn": {
+    "NAME": "Hell Burn",
+    "DESCRIPTION": "Unplayable. NL Become afflicted with !${modID}:BURN! ${modID}:Burned upon using a card."
+  }
+}
