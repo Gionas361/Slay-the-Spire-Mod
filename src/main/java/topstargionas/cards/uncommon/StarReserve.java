@@ -1,9 +1,12 @@
 package topstargionas.cards.uncommon;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import topstargionas.cards.BaseCard;
+import topstargionas.cards.basic.LittleStar;
 import topstargionas.character.TheCaretaker;
 import topstargionas.util.CardStats;
 
@@ -30,6 +33,7 @@ public class StarReserve extends BaseCard {
         super(ID, info); // Pass the required information to the BaseCard constructor.
 
         setBlock(BLOCK, UPG_BLOCK); // Sets the card's damage and how much it changes when upgraded.
+        cardsToPreview = new LittleStar();
 
         // Basic strikes and all strike cards are "tagged",
         // so that the game knows what they are for the purposes of relics like Pandora's Box,

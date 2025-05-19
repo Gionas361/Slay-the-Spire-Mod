@@ -24,8 +24,8 @@
   },
 
   "${modID}:TokenOfGigants": {
-    "NAME": "Token of the Gigants",
-    "FLAVOR": "This is the token given to individuals recognized by the Gigants as a worthy individual.",
+    "NAME": "Token of the Giants",
+    "FLAVOR": "This is the token given to individuals deemed by the Giants, as a worthy of their trust.",
     "DESCRIPTIONS": [
       "Upon using an #y${modID}:Imitation card, reapply the half of the Block and/or Inflict the Damage of the card."
     ]
@@ -35,7 +35,7 @@
     "NAME": "Mimic's Talent",
     "FLAVOR": "Doesnt this remind you of something...? Maybe.... a soul? Perhaps~ even.... a dark one?",
     "DESCRIPTIONS": [
-      "Upon using an #y${modID}:Imitation card, retrigger the card."
+      "Upon using an #y${modID}:Imitation card, retrigger the card and Exhaust it."
     ]
   }
 }

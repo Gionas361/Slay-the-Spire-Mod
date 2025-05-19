@@ -37,10 +37,8 @@
     "ID": "Burned",
     "PROPER_NAME": "Burned",
     "NAMES": [
-      "Burned",
-      "burned",
-      "Burneded",
-      "burneded"
+      "Burneth",
+      "Burneth"
     ],
     "DESCRIPTION": "Receive damage equal to the amount of the effect, and half it's amount."
   },

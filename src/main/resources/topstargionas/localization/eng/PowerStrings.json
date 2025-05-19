@@ -14,9 +14,9 @@
   },
 
   "${modID}:BurnTheStars": {
-    "NAME": "Burn",
+    "NAME": "Burneth",
     "DESCRIPTION": [
-      "At the end of your turn, take #b damage, #yBurned can't kill."
+      "At the start and end of your turn, take #b damage, #yBurneth can't kill on turn start."
     ]
   },
 

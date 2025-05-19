@@ -32,12 +32,12 @@
 
   "${modID}:StarReserve": {
     "NAME": "Star Reserve",
-    "DESCRIPTION": "Gain !B! Block, and Retain every Little Star."
+    "DESCRIPTION": "Gain !B! Block, and Retain every *Little *Star in your hand, for this turn. NL On the next turn set their Energy Cost down to 0."
   },
 
   "${modID}:QuickDraw": {
     "NAME": "Quick Draw",
-    "DESCRIPTION": "Deal !D! damage, 3 times. NL Draw a card after dealing damage. NL Inflict !${modID}:BurnQuickDraw! ${modID}:Burned."
+    "DESCRIPTION": "Deal !D! damage, 3 times. NL Draw a card after dealing damage. NL Inflict !${modID}:BurnQuickDraw! ${modID}:Burneth."
   },
 
   "${modID}:StarFall": {
@@ -47,7 +47,7 @@
 
   "${modID}:BurnEssence": {
     "NAME": "Burn Essence",
-    "DESCRIPTION": "Gain !B! Block. NL Inflict !${modID}:BurnQuickDraw! ${modID}:Burned."
+    "DESCRIPTION": "Gain !B! Block. NL Inflict !${modID}:BurnQuickDraw! ${modID}:Burneth."
   },
 
   "${modID}:MoonlightRebound": {
@@ -87,11 +87,84 @@
 
   "${modID}:AdrenalineAddict": {
     "NAME": "Adrenaline Addict",
-    "DESCRIPTION": "${modID}:Imitation NL Discard all cards, recover 1 Energy for each card. NL Draw cards until hand is full. NL Exhaust."
+    "DESCRIPTION": "${modID}:Imitation NL Exhaust any amount of Cards in hand. NL For each Card Exhausted: NL Recover 1 Energy and Draw 2 Cards. NL Exhaust."
   },
 
   "${modID}:HellBurn": {
     "NAME": "Hell Burn",
-    "DESCRIPTION": "Unplayable. NL Become afflicted with !${modID}:BURN! ${modID}:Burned upon using a card."
+    "DESCRIPTION": "Unplayable. NL Become afflicted with !${modID}:BURN! ${modID}:Burneth upon using a card."
+  },
+
+  "${modID}:ExcessRemoval": {
+    "NAME": "Excess Removal",
+    "DESCRIPTION": "Select up to !${modID}:CardAmount! Cards to Discard. Draw 1 Card."
+  },
+
+  "${modID}:MoonStance": {
+    "NAME": "Moon Stance",
+    "DESCRIPTION": "Add *Crescent *Moon *Slash and *Moonlight *Slash onto Hand. NL (If hand were full, discard Cards until theres enough space). NL Gain 1 Intangible this turn. NL (Exit Stance once CMS and MLS have been Exhausted)."
+  },
+
+  "${modID}:CrescentMoonSlash": {
+    "NAME": "Crescent Moon Slash",
+    "DESCRIPTION": "Deal !D! Damage. NL If this killed an enemy, gain [E] [E] [E]. NL Exhaust."
+  },
+
+  "${modID}:MoonlightSlash": {
+    "NAME": "Moonlight Slash",
+    "DESCRIPTION": "Deal !D! Damage to all enemies. NL If this killed an enemy, gain [E] [E] [E]. NL Exhaust."
+  },
+
+  "${modID}:WeaknessExploit": {
+    "NAME": "WeaknessExploit (ATTACK)(COMMON)(0)",
+    "DESCRIPTION": "${modID}:Imitation NL Deal !D! damage. NL Inflict !${modID}:Vulne! Vulnerable."
+  },
+
+  "${modID}:FingerSnap": {
+    "NAME": "Finger Snap (ATTACK)(COMMON)(2)",
+    "DESCRIPTION": "Deal !D! damage. NL Add !${modID}:LilStars! *Little *Stars into your Draw Pile."
+  },
+
+
+  "${modID}: 5-16-2025": { "NAME":        "Second Set of Cards.",
+                           "DESCRIPTION": "I am now more skilled." },
+
+
+  "${modID}:StarPlan": {
+    "NAME": "Star Plan (SKILL)(RARE)(3->2)",
+    "DESCRIPTION": "Discard hand. NL Move any *Little *Star located in the Draw Pile into the hand.",
+    "UPGRADE_DESCRIPTION": "Discard hand (Excluding Star Reserve). NL Move any *Little *Star located in the Discard Pile or the Draw Pile into the hand."
+  },
+
+  "${modID}:ForwardThinking": {
+    "NAME": "Forward Thinking (SKILL)(UNCOMMON)(1)",
+    "DESCRIPTION": "Gain [E][E] next turn.",
+    "UPGRADE_DESCRIPTION": "Gain [E][E][E][E] next turn. NL Inflict 4 ${modID}:Burneth onto self."
+  },
+
+  "${modID}:HarsherFlames": {
+    "NAME": "Harsher Flames (POWER)(COMMON)(2)",
+    "DESCRIPTION": "${modID}:Imitation NL Upon inflicting ${modID}:Burneth to an enemy, inflict !${modID}:Burn! additional ${modID}:Burneth."
+  },
+
+  "${modID}:Vengeful Actions": {
+    "NAME": "Vengeful Actions (POWER)(RARE)(3->2)",
+    "DESCRIPTION": "If received unblocked damage on the enemy turn, do 1 out-of 3: NL Draw 1~3 Cards next turn. NL Recover 1~3 [E] next turn. NL Recover 5~15 Health.",
+    "UPGRADE_DESCRIPTION": "Upon taking unblocked damage, do 1 out-of 3: NL Draw 1 Cards next turn. NL Recover 1 [E] next turn. NL Recover 8 Health."
+  },
+
+  "${modID}:ShadowWall": {
+    "NAME": "Shadow Wall (ATTACK)(UNCOMMON)(2)",
+    "DESCRIPTION": "${modID}:Imitation NL Gain !B! Block. NL Inflict !${modID}:Burn! ${modID}:Burneth on all enemies."
+  },
+
+  "${modID}:LuckyStarCoin": {
+    "NAME": "Lucky Star Coin (POWER)(UNCOMMON)(2-3)",
+    "DESCRIPTION": "When discarding a card, have a 30% chance of gaining !${modID}:Gold! Gold."
+  },
+
+  "${modID}:": {
+    "NAME": " ()()()",
+    "DESCRIPTION": ""
   }
 }

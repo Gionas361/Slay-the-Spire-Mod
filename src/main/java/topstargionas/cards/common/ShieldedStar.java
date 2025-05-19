@@ -1,5 +1,7 @@
 package topstargionas.cards.common;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
+import com.evacipated.cardcrawl.mod.stslib.patches.cardInterfaces.MultiUpgradePatches;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -14,6 +16,7 @@ import com.megacrit.cardcrawl.vfx.combat.GainPowerEffect;
 import com.megacrit.cardcrawl.vfx.combat.PowerBuffEffect;
 import topstargionas.cards.BaseCard;
 import topstargionas.cards.CustomTags;
+import topstargionas.cards.basic.LittleStar;
 import topstargionas.character.TheCaretaker;
 import topstargionas.util.CardStats;
 

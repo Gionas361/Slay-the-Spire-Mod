@@ -1,64 +1,46 @@
-package topstargionas.cards.uncommon;
+package topstargionas.cards.common;
 
-import basemod.BaseMod;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import topstargionas.cards.BaseCard;
-import topstargionas.cards.CustomTags;
 import topstargionas.character.TheCaretaker;
+import topstargionas.powers.BurnTheStars;
 import topstargionas.util.CardStats;
 
-public class AdrenalineAddict extends BaseCard {
+public class ExcessRemoval extends BaseCard {
     // makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
-    public static final String ID = makeID(AdrenalineAddict.class.getSimpleName());
+    public static final String ID = makeID(ExcessRemoval.class.getSimpleName());
 
     // Card Stats
     private static final CardStats info = new CardStats(
             TheCaretaker.Meta.CARD_COLOR, // The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
             CardType.SKILL, // The type. ATTACK/SKILL/POWER/CURSE/STATUS
-            CardRarity.UNCOMMON, // Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
+            CardRarity.COMMON, // Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
             CardTarget.SELF, // The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
-            3 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
+            1 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
     );
 
     // These will be used in the constructor. Technically you can just use the values directly,
     // but constants at the top of the file are easy to adjust.
+    private static final int CARDAMOUNT = 2;
+    private static final int UPG_CARDAMOUNT = 1;
     private AbstractPlayer player;
 
     // This is what actually creates the card
-    public AdrenalineAddict() {
+    public ExcessRemoval() {
         super(ID, info); // Pass the required information to the BaseCard constructor.
 
-        setCostUpgrade(1);
-        this.exhaust = true;
+        setCostUpgrade(0);
+        setCustomVar("CardAmount", CARDAMOUNT, UPG_CARDAMOUNT);
+
 
         // Basic strikes and all strike cards are "tagged",
         // so that the game knows what they are for the purposes of relics like Pandora's Box,
         // or a card like Perfected Strike. These tags are added by calling tags.add.
-        tags.add(CustomTags.IMMITATIONS);
-    }
-
-    public void CardEffects(AbstractPlayer User, AbstractCreature Target, int TimesToDo) {
-        int x = 0;
-
-        while (x < TimesToDo) {
-            addToTop(new SelectCardsInHandAction(99, DiscardAction.TEXT[0], true, true, c -> true, cards -> {
-                for (AbstractCard card : cards) {
-                    addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
-                    addToTop(new GainEnergyAction(1));
-                }
-
-                addToBot(new DrawCardAction(User, cards.size() * 2));
-            }));
-
-            x++;
-        }
     }
 
     // This code basically declares what the card will do.
@@ -68,6 +50,11 @@ public class AdrenalineAddict extends BaseCard {
         // ALL attacks deal NORMAL damage.
         // Any blockable damage that isn't from an attack is THORNS damage (such as from Thorns).
         // Damage that ignores block is HP_LOSS.
-        CardEffects(p, m, 1);
+        addToTop(new SelectCardsInHandAction(customVar("CardAmount"), DiscardAction.TEXT[0], true, true, c -> true, cards -> {
+            for (AbstractCard card : cards) {
+                addToTop(new DiscardSpecificCardAction(card, AbstractDungeon.player.hand));
+            }
+        }));
+        addToBot(new DrawCardAction(p, 1));
     }
 }

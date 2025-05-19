@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DescriptionLine;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import topstargionas.cards.BaseCard;
@@ -29,6 +30,7 @@ public class LittleStar extends BaseCard {
     private static final int DAMAGE = 5;
     private static final int UPG_DAMAGE = 4;
     private AbstractPlayer player;
+    private boolean setCostToZero = false;
 
     // This is what actually creates the card
     public LittleStar() {
@@ -53,10 +55,20 @@ public class LittleStar extends BaseCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
+    // Retain Cost 0
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         if (c.cardID.equals(StarReserve.ID)) {
             this.retain = true;
+            setCostToZero = true;
         }
+    }
+
+    @Override
+    public void atTurnStart() {
+        this.retain = false;
+
+        if (cost > 0 && setCostToZero) setCostForTurn(0);
+        setCostToZero = false;
     }
 }
