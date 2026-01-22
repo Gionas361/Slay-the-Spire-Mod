@@ -22,14 +22,15 @@ public class BurnTheStars extends BasePower {
     }
 
     public void atEndOfTurn(boolean isPlayer) {
-        if (this.owner.currentHealth <= amount) this.owner.damage(new DamageInfo(this.owner, this.owner.currentHealth - 1, DamageInfo.DamageType.HP_LOSS));
-        else this.owner.damage(new DamageInfo(this.owner, this.amount, DamageInfo.DamageType.HP_LOSS));
+        this.owner.damage(new DamageInfo(this.owner, this.amount, DamageInfo.DamageType.HP_LOSS));
 
         this.amount = amount/2;
 
-        if (amount == 0) {
+        if (amount < 1) {
             addToTop(new RemoveSpecificPowerAction(owner, owner, BurnTheStars.POWER_ID));
         }
+
+        updateDescription();
     }
 
     @Override
@@ -39,9 +40,11 @@ public class BurnTheStars extends BasePower {
 
         if (amount > 1) this.amount = amount/2;
         else this.amount = 0;
+
+        updateDescription();
     }
 
     public void updateDescription() {
-        this.description = "At the end of your turn, take " + amount + " damage, Burn can't kill.";
+        this.description = "At the start and end of your turn, take " + amount + " damage, #yBurneth can't kill on turn start.";
     }
 }

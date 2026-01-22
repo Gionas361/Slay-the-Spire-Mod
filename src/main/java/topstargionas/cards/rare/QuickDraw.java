@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import topstargionas.cards.BaseCard;
+import topstargionas.cards.CustomTags;
 import topstargionas.character.TheCaretaker;
 import topstargionas.powers.BurnTheStars;
 import topstargionas.util.CardStats;
@@ -28,7 +29,7 @@ public class QuickDraw extends BaseCard {
 
     // These will be used in the constructor. Technically you can just use the values directly,
     // but constants at the top of the file are easy to adjust.
-    private static final int DAMAGE = 2;
+    private static final int DAMAGE = 6;
     private static final int UPG_DAMAGE = 4;
     private static final int BURN = 7;
     private static final int UPG_BURN = 5;
@@ -44,6 +45,7 @@ public class QuickDraw extends BaseCard {
         // Basic strikes and all strike cards are "tagged",
         // so that the game knows what they are for the purposes of relics like Pandora's Box,
         // or a card like Perfected Strike. These tags are added by calling tags.add.
+        this.tags.add(CustomTags.BURNETH);
     }
 
     // This code basically declares what the card will do.

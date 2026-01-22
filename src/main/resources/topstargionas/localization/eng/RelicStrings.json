@@ -37,5 +37,14 @@
     "DESCRIPTIONS": [
       "Upon using an #y${modID}:Imitation card, retrigger the card and Exhaust it."
     ]
+  },
+
+  "${modID}:BurningNova": {
+    "NAME": "Burning Nova",
+    "FLAVOR": "The brighter a Star shines, the faster it burns itself away.",
+    "DESCRIPTIONS": [
+      "Die in ",
+      " Turns. NL Gain 1 Strength for first 6 turns. NL Gain 2 Strength for the final 6."
+    ]
   }
 }

@@ -48,10 +48,10 @@ public class AdrenalineAddict extends BaseCard {
         int x = 0;
 
         while (x < TimesToDo) {
-            addToTop(new SelectCardsInHandAction(99, DiscardAction.TEXT[0], true, true, c -> true, cards -> {
+            addToBot(new SelectCardsInHandAction(99, ExhaustAction.TEXT[0], true, true, c -> true, cards -> {
                 for (AbstractCard card : cards) {
-                    addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
-                    addToTop(new GainEnergyAction(1));
+                    addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
+                    addToBot(new GainEnergyAction(1));
                 }
 
                 addToBot(new DrawCardAction(User, cards.size() * 2));

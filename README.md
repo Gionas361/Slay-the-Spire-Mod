@@ -1,3 +1,10 @@
+# My documentation
+
+This mod was created using the template provided by Alchyr in his github.
+
+---
+
+# Original Documentation:
 # Basic Mod
 
 This is an empty Slay the Spire mod + a modding tutorial.

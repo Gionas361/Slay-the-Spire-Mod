@@ -25,5 +25,19 @@
     "DESCRIPTION": [
       "At the start and End of your turn, draw #b cards."
     ]
+  },
+
+  "${modID}:RetainCostZeroLilStars": {
+    "NAME": "Star Reserve",
+    "DESCRIPTION": [
+      "All Little Stars are Retained. NL On the next turn they cost 0."
+    ]
+  },
+
+  "${modID}:VengefulPower": {
+    "NAME": "Vengeful Action",
+    "DESCRIPTION": [
+      "If received unblocked damage on the enemy turn, do 1 out-of 3: NL Draw 1~3 Cards next turn. NL Recover 1~3 [E] next turn. NL Recover 5~15 Health."
+    ]
   }
 }

@@ -11,6 +11,8 @@ import topstargionas.cards.BaseCard;
 import topstargionas.character.TheCaretaker;
 import topstargionas.util.CardStats;
 
+import java.util.Objects;
+
 public class SuperChargedStar extends BaseCard {
     public static final String ID = makeID("SuperChargedStar");
     private final static CardStats CARD_STATS = new CardStats(
@@ -22,6 +24,8 @@ public class SuperChargedStar extends BaseCard {
 
     private static final int DAMAGE = 4;
     private int base = 1;
+    private int ADDCARDAMOUNT = 0; //3
+    private int CARDMULT = 3; //5
 
     public SuperChargedStar() {
         super(ID, CARD_STATS);
@@ -36,6 +40,8 @@ public class SuperChargedStar extends BaseCard {
 
             return base;
         });
+
+        setCustomVar("XMult", CARDMULT);
     }
 
     public boolean canUpgrade() {
@@ -46,15 +52,33 @@ public class SuperChargedStar extends BaseCard {
     public void upgrade() {
         this.upgradeDamage(1 + this.timesUpgraded);
         ++this.timesUpgraded;
-        this.upgraded = true;
         this.name = cardStrings.NAME + "+" + this.timesUpgraded;
+
+
+        if (this.timesUpgraded != 0) {
+            CARDMULT = 5;
+            ADDCARDAMOUNT = 3;
+            setCustomVar("XMult", CARDMULT);
+
+            this.rawDescription = "Deal !D! damage. NL Can be Upgraded any number of times. NL Deal hand-size (" + customVar("XhandSize") + "+" + ADDCARDAMOUNT + ") X " + CARDMULT + ".";
+        }
+
+
+        this.upgraded = true;
+        this.initializeDescription();
         this.initializeTitle();
+    }
+
+    @Override
+    public void atTurnStart() {
+        this.description = this.description;
+        this.initializeDescription();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
-        addToBot(new DamageAction(m, new DamageInfo(p, customVar("XhandSize") * 3, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+        addToBot(new DamageAction(m, new DamageInfo(p, ((customVar("XhandSize") + ADDCARDAMOUNT) * CARDMULT), this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
     }
 
     @Override

@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.combat.PowerDebuffEffect;
 import topstargionas.cards.BaseCard;
 import topstargionas.cards.CustomTags;
 import topstargionas.cards.common.ShieldedStar;
@@ -50,7 +51,7 @@ public class DragonRoar extends BaseCard {
         int x = 0;
         while (x < TimesToDo) {
             for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
-                addToTop(new ApplyPowerAction(mo, User, new WeakPower(User, customVar("WEAK"), false), customVar("WEAK")));
+                addToTop(new ApplyPowerAction(mo, User, new WeakPower(mo, customVar("WEAK"), false), customVar("WEAK")));
             }
 
             x++;

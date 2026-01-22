@@ -26,7 +26,7 @@ public class MoonStance extends BaseCard {
             CardType.SKILL, // The type. ATTACK/SKILL/POWER/CURSE/STATUS
             CardRarity.RARE, // Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
             CardTarget.SELF, // The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
-            1 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
+            2 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
     );
 
     // These will be used in the constructor. Technically you can just use the values directly,
@@ -38,9 +38,6 @@ public class MoonStance extends BaseCard {
     public MoonStance() {
         super(ID, info); // Pass the required information to the BaseCard constructor.
 
-        setCostUpgrade(0);
-
-        Unhovered = false;
         CTP = false;
         this.cardsToPreview = new CrescentMoonSlash();
 
@@ -51,19 +48,15 @@ public class MoonStance extends BaseCard {
 
     @Override
     public void unhover() {
-        if (!Unhovered) {
-            if (CTP) {
-                this.cardsToPreview = new MoonlightSlash();
-                if (this.upgraded) this.cardsToPreview.upgrade();
-                CTP = false;
-            } else if (!CTP) {
-                this.cardsToPreview = new CrescentMoonSlash();
-                if (this.upgraded) this.cardsToPreview.upgrade();
-                CTP = true;
-            }
+        if (CTP) {
+            this.cardsToPreview = new MoonlightSlash();
+            if (this.upgraded) this.cardsToPreview.upgrade();
+            CTP = false;
+        } else if (!CTP) {
+            this.cardsToPreview = new CrescentMoonSlash();
+            if (this.upgraded) this.cardsToPreview.upgrade();
+            CTP = true;
         }
-
-        Unhovered = true;
     }
 
     // This code basically declares what the card will do.

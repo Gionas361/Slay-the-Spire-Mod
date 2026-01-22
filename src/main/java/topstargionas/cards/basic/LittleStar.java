@@ -54,21 +54,4 @@ public class LittleStar extends BaseCard {
         // Damage that ignores block is HP_LOSS.
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
-
-    // Retain Cost 0
-    @Override
-    public void triggerOnOtherCardPlayed(AbstractCard c) {
-        if (c.cardID.equals(StarReserve.ID)) {
-            this.retain = true;
-            setCostToZero = true;
-        }
-    }
-
-    @Override
-    public void atTurnStart() {
-        this.retain = false;
-
-        if (cost > 0 && setCostToZero) setCostForTurn(0);
-        setCostToZero = false;
-    }
 }

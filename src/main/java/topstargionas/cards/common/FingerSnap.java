@@ -3,6 +3,7 @@ package topstargionas.cards.common;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -26,7 +27,7 @@ public class FingerSnap extends BaseCard {
             CardType.ATTACK, // The type. ATTACK/SKILL/POWER/CURSE/STATUS
             CardRarity.COMMON, // Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
             CardTarget.ENEMY, // The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
-            1 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
+            2 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
     );
 
     // These will be used in the constructor. Technically you can just use the values directly,
@@ -39,6 +40,7 @@ public class FingerSnap extends BaseCard {
         super(ID, info); // Pass the required information to the BaseCard constructor.
 
         setDamage(DAMAGE, UPG_DAMAGE); // Sets the card's damage and how much it changes when upgraded.
+        setCustomVar("LilStars", 2, 1);
         cardsToPreview = new LittleStar();
 
         // Basic strikes and all strike cards are "tagged",
@@ -48,10 +50,12 @@ public class FingerSnap extends BaseCard {
 
     public void CardEffects(AbstractPlayer User, AbstractCreature Target, int TimesToDo) {
         int x = 0;
+        AbstractCard LILS = new LittleStar();
+        if (this.upgraded) LILS.upgrade();
 
         while (x < TimesToDo) {
             addToBot(new DamageAction(Target, new DamageInfo(User, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-            addToBot(new MakeTempCardInHandAction(cardsToPreview, 1, true));
+            addToBot(new MakeTempCardInDrawPileAction(LILS, customVar("LilStars"), true, true, false));
 
             x++;
         }
@@ -65,11 +69,5 @@ public class FingerSnap extends BaseCard {
         // Any blockable damage that isn't from an attack is THORNS damage (such as from Thorns).
         // Damage that ignores block is HP_LOSS.
         CardEffects(p, m, 1);
-    }
-
-    @Override
-    public void upgrade() {
-        super.upgrade();
-        cardsToPreview.upgrade();
     }
 }

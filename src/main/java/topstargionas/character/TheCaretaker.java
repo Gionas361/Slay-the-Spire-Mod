@@ -189,7 +189,7 @@ public class TheCaretaker extends CustomPlayer {
 
     @Override
     public int getAscensionMaxHPLoss() {
-        return 4; //Max hp reduction at ascension 14+
+        return 6; //Max hp reduction at ascension 14+
     }
 
     @Override

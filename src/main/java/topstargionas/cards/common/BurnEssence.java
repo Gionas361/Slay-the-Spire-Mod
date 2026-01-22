@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import topstargionas.cards.BaseCard;
+import topstargionas.cards.CustomTags;
 import topstargionas.character.TheCaretaker;
 import topstargionas.powers.BurnTheStars;
 import topstargionas.util.CardStats;
@@ -27,8 +28,8 @@ public class BurnEssence extends BaseCard {
 
     // These will be used in the constructor. Technically you can just use the values directly,
     // but constants at the top of the file are easy to adjust.
-    private static final int BLOCK = 2;
-    private static final int UPG_BLOCK = 2;
+    private static final int BLOCK = 4;
+    private static final int UPG_BLOCK = 4;
     private AbstractPlayer player;
 
     // This is what actually creates the card
@@ -37,12 +38,13 @@ public class BurnEssence extends BaseCard {
 
         setBlock(BLOCK, UPG_BLOCK); // Sets the card's damage and how much it changes when upgraded.
         setCostUpgrade(0);
-        setCustomVar("BurnQuickDraw", BLOCK - 1, UPG_BLOCK);
+        setCustomVar("BurnQuickDraw", 2, 2);
 
 
         // Basic strikes and all strike cards are "tagged",
         // so that the game knows what they are for the purposes of relics like Pandora's Box,
         // or a card like Perfected Strike. These tags are added by calling tags.add.
+        this.tags.add(CustomTags.BURNETH);
     }
 
     // This code basically declares what the card will do.
@@ -54,6 +56,6 @@ public class BurnEssence extends BaseCard {
         // Damage that ignores block is HP_LOSS.
         addToBot(new GainBlockAction(p, block));
         addToBot(new ApplyPowerAction(m, p, new BurnTheStars(m, customVar("BurnQuickDraw"))));
-        addToBot(new ApplyPowerAction(p, p, new BurnTheStars(p, customVar("BurnQuickDraw"))));
+        addToBot(new ApplyPowerAction(p, p, new BurnTheStars(p, customVar("BurnQuickDraw") - 2)));
     }
 }

@@ -1,13 +1,17 @@
 package topstargionas.cards.uncommon;
 
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import topstargionas.cards.BaseCard;
 import topstargionas.cards.basic.LittleStar;
 import topstargionas.character.TheCaretaker;
+import topstargionas.powers.RetainCostZeroLilStars;
 import topstargionas.util.CardStats;
 
 public class StarReserve extends BaseCard {
@@ -40,6 +44,8 @@ public class StarReserve extends BaseCard {
         // or a card like Perfected Strike. These tags are added by calling tags.add.
     }
 
+    private boolean used;
+
     // This code basically declares what the card will do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -48,5 +54,6 @@ public class StarReserve extends BaseCard {
         // Any blockable damage that isn't from an attack is THORNS damage (such as from Thorns).
         // Damage that ignores block is HP_LOSS.
         addToBot(new GainBlockAction(p, block));
+        addToBot(new ApplyPowerAction(p, p, new RetainCostZeroLilStars(p, 1)));
     }
 }
