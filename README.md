@@ -1,6 +1,52 @@
-# My documentation
+# TopStarGionas Mod
 
-This mod was created using the template provided by Alchyr in his github.
+A custom Slay the Spire mod featuring a new character, **The Caretaker**, along with unique cards, powers, relics, and potions.
+
+## Features
+
+### Character
+- **The Caretaker**: A new playable character with unique mechanics
+
+### Cards
+A diverse card pool across multiple rarities:
+- **Basic Cards**: Little Star & Prepare
+- **Common Cards**: Various offense and defense options
+- **Uncommon Cards**: Specialized abilities
+- **Rare Cards**: Powerful effects
+- **Curse Cards**: Unique debuffs
+
+### Powers
+Custom power effects including:
+- Burn The Stars
+- Core Overdrive Power
+- Vengeful Power
+- Draw Passive Start Turn
+- Harsher Burn
+- Retain Cost Zero Lil Stars
+
+### Relics
+Unique artifact effects:
+- Burning Nova
+- Retrigger Imitations
+- Star Core
+- Stellar Core
+- Token of Gigants
+
+### Potions
+Multiple potion tiers with custom effects across common, uncommon, and rare rarities.
+
+## Credits
+
+All character design and artwork created by me, Gionas361.
+
+## Building
+
+This mod was created using the template provided by [Alchyr](https://github.com/Alchyr/BasicMod).
+
+Build with Maven:
+```bash
+mvn package
+```
 
 ---
 
